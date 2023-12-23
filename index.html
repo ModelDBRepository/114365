@@ -1,0 +1,164 @@
+<html><head><title>Requirement of an allosteric kinetics of NMDA receptors for spike-timing-dependent plasticity</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"></head>
+<body bgcolor="#ffffff" text="#000000">
+
+Note from the ModelDB Administrator: the below is a copy of the author's web 
+site at <a href="http://www.bi.s.u-tokyo.ac.jp/kuroda-lab/info/STDP/index.html">
+ http://www.bi.s.u-tokyo.ac.jp/kuroda-lab/info/STDP/index.html</a>
+<hr>
+<p><font face="Arial, Helvetica, sans-serif" size="5"><b>"Requirement of 
+  an allosteric kinetics of NMDA receptors for spike-timing-dependent plasticity"</b></font></p>
+<p><font face="Arial, Helvetica, sans-serif" size="4">H. Urakubo, M. Honda R.C. 
+  Froemke, S. Kuroda, J Neurosci 28(13) pp 3310-3323 (2008)</font></p>
+<p><font face="Arial, Helvetica, sans-serif" size="5"><b>Supplmentary Information</b></font></p>
+<p>The source codes of an allosteric STDP model are provided <a href="http://www.bi.s.u-tokyo.ac.jp/kuroda-lab/info/STDP/Urakubo2008.tar.gz">here</a> 
+  ("tar zxvf Urakubo2008.tar.gz" for uncompression), and detailed model 
+  description is <a href="http://www.bi.s.u-tokyo.ac.jp/kuroda-lab/info/STDP/Urakubo2008SI.pdf">here</a> . The source codes <a href="http://www.bi.s.u-tokyo.ac.jp/kuroda-lab/info/STDP/Urakubo2008.tar.gz">Urakubo2008.tar.gz</a> 
+  contain the demonstration programs of voltage-dependent synaptic plasticity 
+  (Volt, Fig 2), spike-timing-dependent plasticity (STDP, Fig 4) and burst-dependent 
+  plasticity (BURST, Fig 7). All models were built on the GENESIS/kinetikit (version 
+  2.2.1 or 2.3) with X86-Linux. To execute the demonstration programs, <a href="http://www.genesis-sim.org/GENESIS/">the 
+  GENESIS simulator</a> (version 2.2.1 or 2.3) must be installed from source codes 
+  to your LINUX/UNIX system appropreately. The contruction of directories of the 
+  source codes is shown as follows.</p>
+<table border="1" cellpadding="2" cellspacing="2" width="75%">
+  <tbody><tr valign="top"> 
+    <td colspan="2">newgenesis</td>
+    <td width="76%">Extended GENESIS. The extended GENESIS is executable on X86-64 
+      redhat Enterprise Linux ES ver 4 with appropriate ~/.simrc, kkit, etc. Otherwize, 
+      create your own "newgenesis" as described in MODEL/genesis_customizing/.</td>
+  </tr>
+  <tr valign="top"> 
+    <td colspan="2">Volt.out, STDP.out, BURST1.out, BURST2.out, BURST3.out</td>
+    <td width="76%"> 
+      <p>Scripts for simulations (csh/tcsh is assumed). Execute the files by "csh 
+        Volt.out". Note that the execution time is very long. It takes about 
+        1 hour for one parameter simulation with 2.4 GHz AMD Opteron.</p>
+    </td>
+  </tr>
+  <tr valign="top"> 
+    <td colspan="2">Volt_PBSPro.out, STDP_PBSPro.out, BURST1_PBSPro.out, BURST2_PBSPro.out, 
+      BURST3_PBSPro.out</td>
+    <td width="76%">If your system has the job scheduler "PBS professional" 
+      ver 7 or above, you can use the scripts instead of Volt.out, STDP.out etc. 
+      to execute multiple simulations in parallel. Edit the files to fit your 
+      system.</td>
+  </tr>
+  <tr valign="top"> 
+    <td colspan="2"> 
+      <div align="left">DATA_STDP/</div>
+    </td>
+    <td width="76%">Data strage for spike-timing-dependent plasticity (STDP, Fig 
+      4). The subdirectories 0-17 store the simulation results of 100 pre- and 
+      post-spike pairing at T<font size="-3">post</font>-T<font size="-3">pre</font> 
+      = -256, -128, -64, -32, -16, -8, ..., 256 ms, respectively.</td>
+  </tr>
+  <tr valign="top"> 
+    <td colspan="2"> 
+      <div align="left">DATA_Volt/</div>
+    </td>
+    <td width="76%">Data strage for voltage-dependent plasticity (Volt, Fig 2). 
+      The subdirectories 0-9 store the simulation results of 100 pre-spiking with 
+      holding -115, -105 -95, ..., 25 mV, respectively.</td>
+  </tr>
+  <tr valign="top"> 
+    <td colspan="2"> 
+      <div align="left">DATA_BURST/</div>
+    </td>
+    <td width="76%">Data strage for burst-dependent plasticity (BURST, Fig 7A-C). 
+      The subdirectories POST1_PRE5, PRE5_POST1 and PostPrePost4 store the correspondent 
+      simulation results.</td>
+  </tr>
+  <tr valign="top"> 
+    <td colspan="2"> 
+      <div align="left">tmp1/ - tmp5/</div>
+    </td>
+    <td width="76%">Temporal file strage of the GENESIS programs.</td>
+  </tr>
+  <tr valign="top"> 
+    <td colspan="2">PROGRAMS/</td>
+    <td width="76%">GENESIS subroutines.</td>
+  </tr>
+  <tr valign="top"> 
+    <td colspan="2"> 
+      <div align="left">GRAPHS/</div>
+    </td>
+    <td width="76%">Graph plot files (Matlab m-files). VoltMolcProf.m draws Fig 
+      2A-E, VoltMolcTot.m draws Fig 2G VoltCond.m draws Fig 2HI ,STDPCond.m draws 
+      Fig 4DE, STDPMolc.m draws Fig 4FG, BURST1.m draws Fig 7A, BURST2.m draws 
+      Fig 7B, and BURST2.m draws Fig 7C.</td>
+  </tr>
+  <tr valign="top"> 
+    <td rowspan="6" width="9%"> 
+      <div align="left">MODEL/</div>
+    </td>
+    <td width="15%"> 
+      <div align="left">core33.g</div>
+    </td>
+    <td width="76%">Kkit file of signaling cascade and AMPAR trafficking models. 
+      The model must be executed with initials33.g or initials_VoltageClamp33.g 
+      on the extended GENESIS.</td>
+  </tr>
+  <tr valign="top"> 
+    <td width="15%"> 
+      <div align="left">initials33.g</div>
+    </td>
+    <td width="76%">Initial file loader for simulation of STDP and BURST.</td>
+  </tr>
+  <tr valign="top"> 
+    <td> 
+      <div align="left">initials_VoltageClamp33.g</div>
+    </td>
+    <td>Initial file loader for simulation of Volt.</td>
+  </tr>
+  <tr valign="top"> 
+    <td width="15%"> 
+      <div align="left">initial_routines/</div>
+    </td>
+    <td width="76%">Initial files.</td>
+  </tr>
+  <tr valign="top"> 
+    <td width="15%"> 
+      <div align="left">Poirazi_cell/</div>
+    </td>
+    <td width="76%">A postsynaptic neuron model with a sample program. Execute 
+      "./newgenesis main_Poirazi.g" with your own "newgenesis."</td>
+  </tr>
+  <tr valign="top"> 
+    <td> 
+      <div align="left">genesis_customizing/</div>
+    </td>
+    <td> 
+      <p>Extension on the GENESIS simulator. The extension "newgenesis" 
+        of your own system is required for successful execution of the sample 
+        programs. To create "newgenesis" of your own system:</p>
+      <ol>
+        <li>Check the versions of ${GENESIS_SOURCE}/Usermake and ${GENESIS_SOURCE}/Libmake 
+          by reading the first lines of the files. If the versions are different 
+          from ${Urakubo2008}/MODEL/genesis_customizing/Makefile and ${Urakubo2008}/MODEL/genesis_customizing/*/Makefile, 
+          this may cause problems. Replace the files with your GENESIS files, 
+          if the problems occur.</li>
+        <li>Modify the system configuration variables (line 57, lines 64-73) of 
+          ${Urakubo2008}/MODEL/genesis_customizing/Makefile for your own system. 
+          You can refer to ${GENESIS_SOURCE}/src/Makefile.</li>
+        <li>Fill the user configuration variables of ${Urakubo2008}/MODEL/genesis_customizing/Makefile 
+          if you replaced the files with ${GENESIS_SOURCE}/Usermake.</li>
+        <li>Fill the user configuration section of ${Urakubo2008}/MODEL/genesis_customizing/*/Makefile 
+          if you replaced the files with ${GENESIS_SOURCE}/Libmake.</li>
+        <li>"make" in the directory "${Urakubo2008}/MODEL/genesis_customizing".</li>
+        <li>If the programs are compiled successfully, "cp ./newgenesis ./../../" 
+          and enjoy the sample programs!</li>
+      </ol>
+    </td>
+  </tr>
+</tbody></table>
+<p> </p>
+<script language="JavaScript">
+<!--
+document.write("<img src='http://www.bi.s.u-tokyo.ac.jp/kuroda-lab/info/STDP/report/report.cgi?");
+document.write(document.referrer+"' width=1 height=1>");
+// -->
+</script><img src="index_files/report" height="1" width="1">
+
+</body></html>
