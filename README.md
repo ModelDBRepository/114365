@@ -12,8 +12,8 @@ H. Urakubo, M. Honda, R.C. Froemke, S. Kuroda, *J Neurosci* 28(13) pp 3310-3323 
 
 The source codes of an allosteric STDP model are provided [here](http://www.bi.s.u-tokyo.ac.jp/kuroda-lab/info/STDP/Urakubo2008.tar.gz) ("tar zxvf Urakubo2008.tar.gz" for uncompression), and detailed model description is [here](http://www.bi.s.u-tokyo.ac.jp/kuroda-lab/info/STDP/Urakubo2008SI.pdf). The source codes [Urakubo2008.tar.gz](http://www.bi.s.u-tokyo.ac.jp/kuroda-lab/info/STDP/Urakubo2008.tar.gz) contain the demonstration programs of voltage-dependent synaptic plasticity (Volt, Fig 2), spike-timing-dependent plasticity (STDP, Fig 4) and burst-dependent plasticity (BURST, Fig 7). All models were built on the GENESIS/kinetikit (version 2.2.1 or 2.3) with X86-Linux. To execute the demonstration programs, [the GENESIS simulator](http://www.genesis-sim.org/GENESIS/) (version 2.2.1 or 2.3) must be installed from source codes to your LINUX/UNIX system appropreately. The contruction of directories of the source codes is shown as follows.
 
-| | | |
-|-|-|-|
+| Component | File(s) | Description |
+|-----------|---------|-------------|
 | **newgenesis** | | Extended GENESIS. The extended GENESIS is executable on X86-64 redhat Enterprise Linux ES ver 4 with appropriate ~/.simrc, kkit, etc. Otherwize, create your own "newgenesis" as described in MODEL/genesis_customizing/. |
 | **Volt.out, STDP.out, BURST1.out, BURST2.out, BURST3.out** | | Scripts for simulations (csh/tcsh is assumed). Execute the files by "csh Volt.out". Note that the execution time is very long. It takes about 1 hour for one parameter simulation with 2.4 GHz AMD Opteron. |
 | **Volt_PBSPro.out, STDP_PBSPro.out, BURST1_PBSPro.out, BURST2_PBSPro.out, BURST3_PBSPro.out** | | If your system has the job scheduler "PBS professional" ver 7 or above, you can use the scripts instead of Volt.out, STDP.out etc. to execute multiple simulations in parallel. Edit the files to fit your system. |
